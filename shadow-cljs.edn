@@ -3,7 +3,12 @@
  :dev-http {8343 "public"}
  :builds
  {:app
-  {:target     :browser
+  {
+   :asset-path "/js"
+   :dev       {:compiler-options
+               {:external-config {:guardrails {}}
+                :closure-defines {'goog.DEBUG true}}}
+   :target     :browser
    :output-dir "public/js"
    :modules    {:main {:entries [keechma101.init]}}
    }
